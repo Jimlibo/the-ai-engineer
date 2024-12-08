@@ -191,14 +191,14 @@ def main(args):
     while True:
         user_input = console.input("[blue bold]User: ")
 
+        if user_input == "exit":
+            console.print("[green bold]Assistant: Goodbye")
+            break
+
         with console.status("[cyan]Generating response"):
             agent_response = ag.run_graph_flow(user_input=user_input, silent=args.silent)
 
-        console.print("[green bold]" + agent_response)
-
-        # end condition
-        if agent_response == "Assistant: Goodbye!":
-            break
+        console.print("[green bold]Assistant: " + agent_response)
 
 
 if __name__ == "__main__":
